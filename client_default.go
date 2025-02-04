@@ -8,10 +8,10 @@ import (
 
 type defaultClient struct {
 	rc  *redis.Client
-	cfg *Config
+	cfg *RedisConfig
 }
 
-func NewClient(cfg *Config) Client {
+func NewClient(cfg *RedisConfig) Client {
 
 	addr := fmt.Sprintf("%s:%s", cfg.Hostname, cfg.Port)
 
