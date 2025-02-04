@@ -7,7 +7,7 @@ import (
 
 func (c *defaultClient) SetWithDefaultExpiration(ctx context.Context, key string, value interface{}) error {
 
-	err := c.rc.Set(ctx, key, value, time.Second*c.cfg.DefaultExpirationSeconds).Err()
+	err := c.rc.Set(ctx, key, value, time.Second*c.cfg.DefaultExpirationSecondsDuration()).Err()
 	if err != nil {
 		return NewRedisError(err)
 	}

@@ -7,7 +7,7 @@ import (
 
 // SetNX set if not exist
 func (c *defaultClient) SetNXWithDefaultExpiration(ctx context.Context, key string, value interface{}) error {
-	err := c.rc.SetNX(ctx, key, value, time.Second*c.cfg.DefaultExpirationSeconds).Err()
+	err := c.rc.SetNX(ctx, key, value, time.Second*c.cfg.DefaultExpirationSecondsDuration()).Err()
 	if err != nil {
 		return NewRedisError(err)
 	}
